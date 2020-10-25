@@ -8,6 +8,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Navbar, Nav } from 'react-bootstrap';
 
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { Read } from './components/read';
+import { Create } from './components/create';
 //navbar added
 
 
@@ -30,8 +32,8 @@ class App extends Component {
           
           <Switch>
             <Route path='/' component={Content} exact />
-            <Route path='/create' component={Header} exact />
-            <Route path='/read' component={Footer} exact />
+            <Route path='/create' component={Create} exact />
+            <Route path='/read' component={Read} exact />
           </Switch>
           
 
@@ -50,4 +52,6 @@ class App extends Component {
 //footer component added
 
 //seperate routes added for ech different page
+
+// LAB 3 replaced the footer and header paths to the create and read
 export default App;

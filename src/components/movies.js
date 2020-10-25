@@ -1,0 +1,22 @@
+import React from 'react';
+import { Movieitem } from './movieitem';
+// import 
+
+
+export class Movies extends React.Component{
+
+    render(){
+        return this.props.movies.map( (movie)=> {
+            return <Movieitem movie={movie}></Movieitem>
+
+        } )
+           
+        
+    }
+
+}
+// added the Movies.js component added
+
+//movie item component embedded in read component 
+
+//function added
