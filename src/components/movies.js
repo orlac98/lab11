@@ -20,3 +20,5 @@ export class Movies extends React.Component{
 //movie item component embedded in read component 
 
 //function added
+
+// map function used to split the movie info to display seperately 

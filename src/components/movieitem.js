@@ -7,11 +7,11 @@ export class Movieitem extends React.Component{
     render(){
         return(
             <div>
-            <h1>This is the Movieitem Component.</h1>
+            
             <h4> {this.props.movie.Title}</h4>
-            <h4> {this.props.movie.Title}</h4>
-            <h4> {this.props.movie.Title}</h4>
-            <h4> {this.props.movie.Title}</h4>
+            <p> {this.props.movie.Year}</p>
+            <img src= {this.props.movie.Poster} width="200" height="200"></img>
+
             </div>
         );
     }
