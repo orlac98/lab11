@@ -13,14 +13,13 @@ export class Read extends React.Component {
     };
 
     componentDidMount() {
-        axios.get('https://jsonblob.com/api/jsonblob/520c3b5e-0312-11eb-a6af-cbf00d776032')
+        axios.get('http://localhost:4000/api/movies')
             .then((response) => {
-                this.setState({ movies: response.data.Search })
-            }
-
-            )
-            .catch((error)=>{console.log(error)}
-            );
+                this.setState({ movies: response.data.movies });
+            })
+            .catch((error) => {
+                console.log(error)
+            });
     }
 
 
@@ -53,3 +52,5 @@ export class Read extends React.Component {
 //data can be read from live api link isnetad of having to put all info in ourselves
 
 
+//lab 7 took out the json blob and changed it to the new api localhost 4000 
+//replace search with movies
