@@ -15,7 +15,7 @@ export class Read extends React.Component {
     componentDidMount() {
         axios.get('http://localhost:4000/api/movies')
             .then((response) => {
-                this.setState({ movies: response.data.movies });
+                this.setState({ movies: response.data });
             })
             .catch((error) => {
                 console.log(error)
@@ -54,3 +54,6 @@ export class Read extends React.Component {
 
 //lab 7 took out the json blob and changed it to the new api localhost 4000 
 //replace search with movies
+
+//lab8
+//changed it to now display movies from our database

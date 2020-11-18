@@ -3,6 +3,7 @@ const app = express()
 const port = 4000
 const cors = require('cors');
 const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
 
 app.use(cors());
 app.use(function(req, res, next) {
@@ -17,43 +18,50 @@ app.use(bodyParser.urlencoded({ extended: false }))
 
 app.use(bodyParser.json())
 
-// app.get('/api/movies', (req, res) => {
-//     res.send('Hello World')
-// })
+const strConnection = 'mongodb+srv://orlac98:orlac98@cluster1.gqskz.mongodb.net/MyFilms?retryWrites=true&w=majority';
+mongoose.connect(strConnection, {useNewUrlParser: true});
+
+const Scheme = mongoose.Schema;
+const movieSchema = new mongoose.Schema({
+    Title:String,
+    Year:String,
+    Poster:String
+})
+
+const movieModel = mongoose.model('film', movieSchema);
+
+app.get('/', (req, res) => {
+    res.send('Hello World')
+})
 
 app.get('/api/movies', (req, res) => {
 
-    const mymovies = [
-        {
-        "Title":"Avengers: Infinity War",
-        "Year":"2018",
-        "imdbID":"tt4154756",
-        "Type":"movie",
-        "Poster":"https://m.media-amazon.com/images/M/MV5BMjMxNjY2MDU1OV5BMl5BanBnXkFtZTgwNzY1MTUwNTM@._V1_SX300.jpg"
-        },
-        {
-        "Title":"Captain America: Civil War",
-        "Year":"2016",
-        "imdbID":"tt3498820",
-        "Type":"movie",
-        "Poster":"https://m.media-amazon.com/images/M/MV5BMjQ0MTgyNjAxMV5BMl5BanBnXkFtZTgwNjUzMDkyODE@._V1_SX300.jpg"
-        }  
-    ];
+movieModel.find((err,data)=>{
+    res.json(data);
+})
+})
 
-    res.status(200).json({
-        message: 'everything is good',
-        movies:mymovies,
+app.get('/api/movies/:id',(req, res)=>{
 
-    });
+    console.log(req.params.id);
+
+    movieModel.findById(req.params.id, (err,data)=>{
+        res.json(data);
+    })
+  
 })
 
 app.post('/api/movies', (req, res) => {
-    console.log('Movie Recieved');
     console.log(req.body);
-    console.log(req.body.Title);
-    console.log(req.body.Year);
-    console.log(req.body.Poster);
-   
+
+
+    movieModel.create({
+        Title:req.body.Title,
+        Year:req.body.Year,
+        Poster:req.body.Poster
+    })
+    
+    res.send('Data Recieved');
 })
 
 app.listen(port, () => {
@@ -63,3 +71,6 @@ app.listen(port, () => {
 
 //Backend folder created and server.js file added into it
 //installed cors and added the given code to avoid being given errors
+
+//mongoose imported to connect to database
+//pasted in connection string schema added 
