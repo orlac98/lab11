@@ -46,8 +46,7 @@ export class Movieitem extends React.Component {
     }
 
 }
-// added the create.js file to the app js
 
-// card from react bootstrap added to display movie info neater
+
 
 //onlcick added to delete movie with button

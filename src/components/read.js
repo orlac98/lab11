@@ -25,6 +25,8 @@ export class Read extends React.Component {
         });
     }
 
+    //added in this reload data
+
     componentDidMount() {
         axios.get('http://localhost:4000/api/movies')
             .then((response) => {

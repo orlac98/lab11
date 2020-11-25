@@ -58,6 +58,8 @@ app.delete('/api/movies/:id', (req, res) =>{
     })
 })
 
+//added in this to delete movie by id
+
 app.post('/api/movies', (req, res) => {
     console.log(req.body);
 
