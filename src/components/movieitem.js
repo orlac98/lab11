@@ -3,7 +3,7 @@ import Card from 'react-bootstrap/Card';
 
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
-
+import {Link} from 'react-router-dom';
 
 export class Movieitem extends React.Component {
 
@@ -37,15 +37,22 @@ export class Movieitem extends React.Component {
                                 <p> {this.props.movie.Year}</p>
                             </footer>
                         </blockquote>
-
+                        <Button variant="danger" onClick={this.DeleteMovie}> Delete</Button>
+                  <Link to={'/edit/'+this.props.movie._id} className='btn btn-primary'> Edit</Link>
                     </Card.Body>
-                    <Button variant="danger" onClick={this.DeleteMovie}> Delete</Button>
+                    
                 </Card>
             </div>
         );
     }
 
 }
+
+//link added for edit button to chnge url of application
+
+
+
+
 
 
 

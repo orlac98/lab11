@@ -10,6 +10,7 @@ import { Navbar, Nav } from 'react-bootstrap';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Read } from './components/read';
 import { Create } from './components/create';
+import { Edit } from './components/edit';
 //navbar added
 
 
@@ -34,14 +35,23 @@ class App extends Component {
             <Route path='/' component={Content} exact />
             <Route path='/create' component={Create} exact />
             <Route path='/read' component={Read} exact />
+            <Route path='/edit/:id'component={Edit}/>
           </Switch>
-          
-
         </div>
       </Router>
     );
   }
 }
+
+
+//edit route added in 
+
+
+
+
+
+
+
 //Removed contents of the div
 //added a H1 tag
 //used piece of code off lab worksheet and added under hello world
