@@ -81,7 +81,7 @@ export class Edit extends React.Component{
     //      .catch((err) =>{
     //       console.log(err);
     // });
-    axios.put('http://localhost:4000/api/movies'+this.state._id, newMovie)
+    axios.put('http://localhost:4000/api/movies/'+this.state._id, newMovie)
     .then((data)=>{
         console.log(data);
     })
